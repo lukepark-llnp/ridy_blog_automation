@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Logs
+*.log
+logs/
+*.json.log
+
+# Output files
+output/
+temp_images/
+
+# Sensitive files
+.env
+naver_cookies.json
+chrome_data/
+
+# Mac
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Test files
+debug_*.html
+debug_*.json
+test_*.py

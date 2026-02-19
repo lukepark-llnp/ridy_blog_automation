@@ -1,0 +1,2646 @@
+{
+  "contenteditable": [
+    {
+      "className": "",
+      "id": "",
+      "innerHTML": "",
+      "parentClassName": "",
+      "tagName": "DIV",
+      "textContent": ""
+    }
+  ],
+  "se_elements": {
+    "se-background-color-indicator": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-background-color-indicator se-is-white-color",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-blind": {
+      "count": 30,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-blind",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-blind",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-body": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-body __se-body",
+          "id": "SE-988191d5-6cc4-4407-9911-06b27e94c09f",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-bold-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-bold-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-canvas": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-canvas se-canvas-width-886 se-l-viewport-tablet se-l-viewport-desktop se-theme-default se-native-selection-hidden",
+          "id": "",
+          "tagName": "SECTION"
+        }
+      ]
+    },
+    "se-canvas-bottom": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-canvas-bottom",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-canvas-bottom-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-canvas-bottom-button __edge-area",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-caret": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-caret",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-caret-ai-icon": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-caret-ai-icon",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-code-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-code-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-component": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-component se-documentTitle se-l-default",
+          "id": "SE-7a834444-c4d8-405a-a80f-fb92562e01a8",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-component se-text se-l-default",
+          "id": "SE-add1c0be-99e5-4107-9f85-c364287e6b58",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-component-content": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-component-content",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-component-content",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-components-wrap": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-components-wrap",
+          "id": "",
+          "tagName": "ARTICLE"
+        }
+      ]
+    },
+    "se-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-content": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-content __se-scroll-target",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-content-guide": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-content-guide",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-cover-attach-button-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-cover-attach-button-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-cover-button": {
+      "count": 6,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-cover-button se-cover-button-local-image-upload",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-cover-button se-cover-button-sns-image-upload",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-cover-button-label": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-cover-button-label",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-cover-button-label",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-cover-button-wrap": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-cover-button-wrap",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-cover-edit-button-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-cover-edit-button-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-cover-moving-button-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-cover-moving-button-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-dnd-wrap": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-dnd-wrap",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-document-toolbar-icon-select-button": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-document-toolbar-icon-select-button se-insert-quotation-default-toolbar-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-document-toolbar-icon-select-button se-insert-horizontal-line-default-toolbar-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-document-toolbar-icon-select-container": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "__se-sentry se-document-toolbar-icon-select-container __select-container se-document-toolbar-text-icon-container",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "__se-sentry se-document-toolbar-icon-select-container __select-container se-document-toolbar-text-icon-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-document-toolbar-select-option-button": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-document-toolbar-select-option-button se-text-icon-toolbar-select-option-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-document-toolbar-select-option-button se-text-icon-toolbar-select-option-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-drop-cap-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-drop-cap-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-drop-indicator": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-drop-indicator",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-drop-indicator",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-ff-nanumgothic": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-ff-nanumgothic se-fs32 __se-node",
+          "id": "SE-72629017-a03d-4fa1-a7c3-3605f27e1725",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-ff-nanumgothic se-fs16 __se-node",
+          "id": "SE-c8357670-147a-41d9-a273-5d940fb61b33",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-file-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-file-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-book": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-book",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-broadcast": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-broadcast",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-movie": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-movie",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-music": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-music",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-news": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-news",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-photo": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-photo",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-shopping": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-shopping",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-show": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-show",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-shrink": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-shrink",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-category-button-sports": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-category-button-sports",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-material-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-material-menu": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu se-is-expanded",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-material-menu-button-wrapper": {
+      "count": 9,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu-button-wrapper",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu-button-wrapper",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-material-menu-buttons": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu-buttons",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-material-menu-line": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu-line",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu-line",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-material-menu-logo-title": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu-logo-title",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-floating-material-menu-logo-wrapper": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu-logo-wrapper",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-material-menu-toggle-button-wrapper": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-menu-toggle-button-wrapper",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-material-tooltip": {
+      "count": 11,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-tooltip",
+          "id": "__se-f-m-tooltip-tooltip-book",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-tooltip",
+          "id": "__se-f-m-tooltip-tooltip-music",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-material-tooltip-title": {
+      "count": 11,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-tooltip-title",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-material-tooltip-title",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-floating-search-area": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-search-area se-is-collapsed",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-floating-search-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-search-button",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-floating-search-input-search": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-search-input-search",
+          "id": "",
+          "tagName": "INPUT"
+        }
+      ]
+    },
+    "se-floating-search-wrapper": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-floating-search-wrapper",
+          "id": "",
+          "tagName": "FORM"
+        }
+      ]
+    },
+    "se-font-color-indicator": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-font-color-indicator",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-font-family-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-font-family-toolbar-button se-property-toolbar-label-select-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-font-size-code-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-font-size-code-toolbar-button se-property-toolbar-label-select-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-formula-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-formula-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-header": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-header se-header-type-basic",
+          "id": "",
+          "tagName": "HEADER"
+        }
+      ]
+    },
+    "se-header-inbox": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-header-inbox se-l-document-toolbar",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-header-inbox se-l-property-toolbar",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-help-carousel-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-help-carousel-content": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "slick-slider se-help-carousel-content slick-initialized",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-help-carousel-image": {
+      "count": 3,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "slick-slider se-help-carousel-image slick-initialized",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-image",
+          "id": "",
+          "tagName": "IMG"
+        }
+      ]
+    },
+    "se-help-carousel-info": {
+      "count": 10,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-info",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-info",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-help-carousel-info-desc": {
+      "count": 10,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-info-desc",
+          "id": "",
+          "tagName": "P"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-info-desc",
+          "id": "",
+          "tagName": "P"
+        }
+      ]
+    },
+    "se-help-carousel-info-title": {
+      "count": 10,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-info-title",
+          "id": "",
+          "tagName": "H3"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-info-title",
+          "id": "",
+          "tagName": "H3"
+        }
+      ]
+    },
+    "se-help-carousel-title": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-carousel-title",
+          "id": "",
+          "tagName": "H2"
+        }
+      ]
+    },
+    "se-help-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-help-content": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-content",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-help-header": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-header se-help-header-dark",
+          "id": "",
+          "tagName": "HEADER"
+        }
+      ]
+    },
+    "se-help-nav": {
+      "count": 4,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-nav",
+          "id": "",
+          "tagName": "NAV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-nav",
+          "id": "",
+          "tagName": "NAV"
+        }
+      ]
+    },
+    "se-help-nav-item": {
+      "count": 30,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-nav-item",
+          "id": "",
+          "tagName": "LI"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-nav-item",
+          "id": "",
+          "tagName": "LI"
+        }
+      ]
+    },
+    "se-help-nav-link": {
+      "count": 3,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-nav-link",
+          "id": "",
+          "tagName": "A"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-nav-link",
+          "id": "",
+          "tagName": "A"
+        }
+      ]
+    },
+    "se-help-nav-list": {
+      "count": 5,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-nav-list",
+          "id": "",
+          "tagName": "UL"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-nav-list",
+          "id": "",
+          "tagName": "UL"
+        }
+      ]
+    },
+    "se-help-panel": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-panel se-is-on",
+          "id": "",
+          "tagName": "ARTICLE"
+        }
+      ]
+    },
+    "se-help-panel-close-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-panel-close-button",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-help-section": {
+      "count": 5,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-section",
+          "id": "",
+          "tagName": "SECTION"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-section",
+          "id": "",
+          "tagName": "SECTION"
+        }
+      ]
+    },
+    "se-help-section-header": {
+      "count": 5,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-section-header",
+          "id": "",
+          "tagName": "H2"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-section-header",
+          "id": "",
+          "tagName": "H2"
+        }
+      ]
+    },
+    "se-help-title": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-help-title",
+          "id": "",
+          "tagName": "H1"
+        }
+      ]
+    },
+    "se-highlight-arrow-icon": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-highlight-arrow-icon",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-highlight-tooltip": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "__se-highlight-tooltip se-highlight-tooltip se-highlight-tooltip-position-top-right",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-highlight-tooltip-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-highlight-tooltip-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-highlight-tooltip-description": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-highlight-tooltip-description",
+          "id": "",
+          "tagName": "P"
+        }
+      ]
+    },
+    "se-image-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-image-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-insert-menu": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-insert-menu-button": {
+      "count": 4,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-button se-insert-menu-button-image",
+          "id": "",
+          "tagName": "BUTTON"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-button se-insert-menu-button-sticker",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-insert-menu-button-label": {
+      "count": 4,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-button-label",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-button-label",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-insert-menu-item": {
+      "count": 4,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-item se-insert-menu-item-image",
+          "id": "",
+          "tagName": "LI"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-item se-insert-menu-item-sticker",
+          "id": "",
+          "tagName": "LI"
+        }
+      ]
+    },
+    "se-insert-menu-panel": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-panel",
+          "id": "",
+          "tagName": "UL"
+        }
+      ]
+    },
+    "se-insert-menu-sub-panel": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-sub-panel se-insert-menu-sub-panel-horizontalLine",
+          "id": "",
+          "tagName": "UL"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-sub-panel se-insert-menu-sub-panel-quotation",
+          "id": "",
+          "tagName": "UL"
+        }
+      ]
+    },
+    "se-insert-menu-sub-panel-button": {
+      "count": 14,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-sub-panel-button se-insert-menu-sub-panel-button-horizontalLine-default",
+          "id": "",
+          "tagName": "BUTTON"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-sub-panel-button se-insert-menu-sub-panel-button-horizontalLine-line1",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-insert-menu-sub-panel-item": {
+      "count": 14,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-sub-panel-item",
+          "id": "",
+          "tagName": "LI"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-menu-sub-panel-item",
+          "id": "",
+          "tagName": "LI"
+        }
+      ]
+    },
+    "se-insert-point-marker-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-point-marker-button",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-insert-point-marker-icon": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-insert-point-marker-icon",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-italic-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-italic-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-library-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-library-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-link-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-link-toolbar-button se-property-toolbar-custom-layer-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-map-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-map-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-module": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-module se-module-text __se-unit se-is-empty se-title-text se-module-fs32-min-height-for-ie",
+          "id": "SE-17107b6f-0619-479b-8397-285f74d1d2c9",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-module se-module-text __se-unit se-is-empty",
+          "id": "SE-b6f73803-f010-4931-8129-3d89c60cbca7",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-moment-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-moment-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-not-sponsored-button-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-not-sponsored-button-toolbar-button se-document-toolbar-custom-button se-text-icon-toolbar-button se-highlight-toolbar-button __se-highlight-button se-highlight-tooltip-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-oglink-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-oglink-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-placeholder": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-placeholder __se_placeholder se-ff-nanumgothic se-fs32",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-placeholder __se_placeholder se-ff-nanumgothic se-fs16 se-placeholder-focused",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-progressbar": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-progressbar",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-property-color-picker-container": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-color-picker-container __select-container",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-color-picker-container __select-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-property-toolbar-color-picker-button": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-color-picker-button se-font-color-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-color-picker-button se-background-color-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-property-toolbar-custom-layer-container": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-custom-layer-container __select-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-property-toolbar-drop-down-button": {
+      "count": 3,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-drop-down-button se-align-left-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-drop-down-button se-line-height-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-property-toolbar-drop-down-container": {
+      "count": 3,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-drop-down-container __select-container",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-drop-down-container __select-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-property-toolbar-label-select-container": {
+      "count": 3,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-label-select-container __select-container",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-property-toolbar-label-select-container __select-container",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-schedule-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-schedule-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-search-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-search-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button se-highlight-toolbar-button __se-highlight-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-section": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-section se-section-documentTitle se-l-default se-section-align-left",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-section se-section-text se-l-default se-is-focused",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-selection": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-selection",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-separator-bar-button": {
+      "count": 7,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-separator-bar-button se-toolbar-button-separator-bar-with-line",
+          "id": "",
+          "tagName": "DIV"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-separator-bar-button se-toolbar-button-separator-bar",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-social-media-image-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-social-media-image-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-special-letter-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-special-letter-toolbar-button se-property-toolbar-basic-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-speller-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-speller-toolbar-button se-property-toolbar-basic-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-sticker-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-sticker-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-strikethrough-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-strikethrough-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-subscript-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-subscript-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-superscript-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-superscript-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-table-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-table-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-template-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-template-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-text-format-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-text-format-toolbar-button se-property-toolbar-label-select-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-text-paragraph": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-text-paragraph se-text-paragraph-align-left",
+          "id": "SE-a4b76a54-f0c7-43fd-a3f8-5c2ca94407ed",
+          "tagName": "P"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-text-paragraph se-text-paragraph-align-left",
+          "id": "SE-2d923b4b-728c-43c6-9909-9c27532e0862",
+          "tagName": "P"
+        }
+      ]
+    },
+    "se-toolbar": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar se-document-toolbar",
+          "id": "",
+          "tagName": "UL"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar se-property-toolbar se-property-toolbar-text",
+          "id": "",
+          "tagName": "UL"
+        }
+      ]
+    },
+    "se-toolbar-color-picker-icon": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-color-picker-icon",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-color-picker-icon",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-toolbar-custom-icon": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-custom-icon",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-toolbar-icon": {
+      "count": 38,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-icon",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-icon",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-toolbar-icon-background-color": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-icon-background-color",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-toolbar-icon-font-color": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-icon-font-color",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-toolbar-item": {
+      "count": 44,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-item se-toolbar-item-image",
+          "id": "",
+          "tagName": "LI"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-item se-toolbar-item-social-media-image",
+          "id": "",
+          "tagName": "LI"
+        }
+      ]
+    },
+    "se-toolbar-label": {
+      "count": 27,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-label",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-label",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-toolbar-tooltip": {
+      "count": 39,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-tooltip",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-toolbar-tooltip",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-translation-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-translation-toolbar-button se-property-toolbar-basic-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-ultils-list": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-ultils-list",
+          "id": "",
+          "tagName": "UL"
+        }
+      ]
+    },
+    "se-underline-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-underline-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-util-button": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-util-button __mode-button se-util-button-device-desktop",
+          "id": "",
+          "tagName": "BUTTON"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-util-button se-util-button-guide",
+          "id": "",
+          "tagName": "A"
+        }
+      ]
+    },
+    "se-utils": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-utils",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    },
+    "se-utils-item": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-utils-item",
+          "id": "",
+          "tagName": "LI"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-utils-item",
+          "id": "",
+          "tagName": "LI"
+        }
+      ]
+    },
+    "se-utils-text": {
+      "count": 2,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-utils-text",
+          "id": "",
+          "tagName": "SPAN"
+        },
+        {
+          "contenteditable": null,
+          "fullClassName": "se-utils-text",
+          "id": "",
+          "tagName": "SPAN"
+        }
+      ]
+    },
+    "se-video-toolbar-button": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-video-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+          "id": "",
+          "tagName": "BUTTON"
+        }
+      ]
+    },
+    "se-wrap": {
+      "count": 1,
+      "examples": [
+        {
+          "contenteditable": null,
+          "fullClassName": "se-wrap se-dnd-wrap",
+          "id": "",
+          "tagName": "DIV"
+        }
+      ]
+    }
+  },
+  "text_editor_search": {
+    "#smartEditor": {
+      "count": 0,
+      "examples": [],
+      "found": false
+    },
+    ".se-component.se-text": {
+      "count": 1,
+      "examples": [
+        {
+          "className": "se-component se-text se-l-default",
+          "contenteditable": null,
+          "id": "SE-add1c0be-99e5-4107-9f85-c364287e6b58",
+          "innerHTML": "<div class=\"se-component-content\"><div class=\"se-drop-indicator\" data-unitid=\"\" data-compid=\"SE-add1c0be-99e5-4107-9f85-c364287e6b58\" data-direction=\"",
+          "tagName": "DIV"
+        }
+      ],
+      "found": true
+    },
+    ".se-main-container": {
+      "count": 0,
+      "examples": [],
+      "found": false
+    },
+    ".se-section": {
+      "count": 2,
+      "examples": [
+        {
+          "className": "se-section se-section-documentTitle se-l-default se-section-align-left",
+          "contenteditable": null,
+          "id": "",
+          "innerHTML": "<div id=\"SE-17107b6f-0619-479b-8397-285f74d1d2c9\" class=\"se-module se-module-text __se-unit se-is-empty se-title-text se-module-fs32-min-height-for-ie",
+          "tagName": "DIV"
+        },
+        {
+          "className": "se-section se-section-text se-l-default se-is-focused",
+          "contenteditable": null,
+          "id": "",
+          "innerHTML": "<div id=\"SE-b6f73803-f010-4931-8129-3d89c60cbca7\" class=\"se-module se-module-text __se-unit se-is-empty\"><p id=\"SE-2d923b4b-728c-43c6-9909-9c27532e086",
+          "tagName": "DIV"
+        }
+      ],
+      "found": true
+    },
+    ".se-section-container": {
+      "count": 0,
+      "examples": [],
+      "found": false
+    },
+    ".se-text-paragraph": {
+      "count": 2,
+      "examples": [
+        {
+          "className": "se-text-paragraph se-text-paragraph-align-left",
+          "contenteditable": null,
+          "id": "SE-a4b76a54-f0c7-43fd-a3f8-5c2ca94407ed",
+          "innerHTML": "<span id=\"SE-72629017-a03d-4fa1-a7c3-3605f27e1725\" class=\"se-ff-nanumgothic se-fs32 __se-node\"></span><span class=\"se-placeholder __se_placeholder se-",
+          "tagName": "P"
+        },
+        {
+          "className": "se-text-paragraph se-text-paragraph-align-left",
+          "contenteditable": null,
+          "id": "SE-2d923b4b-728c-43c6-9909-9c27532e0862",
+          "innerHTML": "<span id=\"SE-c8357670-147a-41d9-a273-5d940fb61b33\" class=\"se-ff-nanumgothic se-fs16 __se-node\" style=\"color: rgb(0, 0, 0);\"></span><span class=\"se-pla",
+          "tagName": "P"
+        }
+      ],
+      "found": true
+    },
+    "div[contenteditable=\"true\"]": {
+      "count": 1,
+      "examples": [
+        {
+          "className": "",
+          "contenteditable": "true",
+          "id": "",
+          "innerHTML": "",
+          "tagName": "DIV"
+        }
+      ],
+      "found": true
+    }
+  },
+  "react_structure": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [],
+                        "className": "blind",
+                        "id": "",
+                        "tagName": "SPAN"
+                      }
+                    ],
+                    "className": "link_naver__EDYT3",
+                    "id": "",
+                    "tagName": "A"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [],
+                        "className": "blind",
+                        "id": "",
+                        "tagName": "SPAN"
+                      }
+                    ],
+                    "className": "link_blog__Xvski",
+                    "id": "",
+                    "tagName": "A"
+                  }
+                ],
+                "className": "logo__xEaPN",
+                "id": "",
+                "tagName": "H1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "className": "autosave_message__PgBf8",
+                    "id": "",
+                    "tagName": "SPAN"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          "..."
+                        ],
+                        "className": "reserve_btn__Km5Xh",
+                        "id": "",
+                        "tagName": "BUTTON"
+                      }
+                    ],
+                    "className": "reserve_btn_area__DcnEe",
+                    "id": "",
+                    "tagName": "DIV"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          "..."
+                        ],
+                        "className": "save_btn__bzc5B",
+                        "id": "",
+                        "tagName": "BUTTON"
+                      },
+                      {
+                        "children": [
+                          "..."
+                        ],
+                        "className": "save_count_btn__ZTLNa",
+                        "id": "",
+                        "tagName": "BUTTON"
+                      }
+                    ],
+                    "className": "save_btn_area__Qo0W7",
+                    "id": "",
+                    "tagName": "DIV"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [],
+                        "className": "",
+                        "id": "",
+                        "tagName": "DIV"
+                      },
+                      {
+                        "children": [
+                          "..."
+                        ],
+                        "className": "",
+                        "id": "",
+                        "tagName": "DIV"
+                      },
+                      {
+                        "children": [],
+                        "className": "",
+                        "id": "",
+                        "tagName": "DIV"
+                      }
+                    ],
+                    "className": "publish_btn_area__KjA2i",
+                    "id": "",
+                    "tagName": "DIV"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          "..."
+                        ],
+                        "className": "overflow_menu_btn__AzKxF",
+                        "id": "",
+                        "tagName": "BUTTON"
+                      },
+                      {
+                        "children": [
+                          "..."
+                        ],
+                        "className": "layer_overflowmenu__ru14P",
+                        "id": "",
+                        "tagName": "DIV"
+                      }
+                    ],
+                    "className": "overflow_menu_btn_area__H01D4",
+                    "id": "",
+                    "tagName": "DIV"
+                  }
+                ],
+                "className": "header_menu__UJgdY",
+                "id": "",
+                "tagName": "DIV"
+              }
+            ],
+            "className": "header__Ceaap",
+            "id": "",
+            "tagName": "DIV"
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "className": "dimmed__ypU4_",
+                "id": "",
+                "tagName": "DIV"
+              }
+            ],
+            "className": "layer_popup__WjlfW",
+            "id": "",
+            "tagName": "DIV"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          "..."
+                        ],
+                        "className": "se-wrap se-dnd-wrap",
+                        "id": "",
+                        "tagName": "DIV"
+                      },
+                      {
+                        "children": [],
+                        "className": "",
+                        "id": "",
+                        "tagName": "DIV"
+                      }
+                    ],
+                    "className": "se-body __se-body",
+                    "id": "SE-988191d5-6cc4-4407-9911-06b27e94c09f",
+                    "tagName": "DIV"
+                  }
+                ],
+                "className": "blog_editor",
+                "id": "",
+                "tagName": "DIV"
+              }
+            ],
+            "className": "container__HW_tc",
+            "id": "",
+            "tagName": "DIV"
+          }
+        ],
+        "className": "blog_seone_wrap__C5hlm",
+        "id": "",
+        "tagName": "DIV"
+      }
+    ],
+    "className": "",
+    "id": "root",
+    "tagName": "DIV"
+  },
+  "toolbar_events": [
+    {
+      "className": "se-image-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "image"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.img"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "사진사진 추가"
+    },
+    {
+      "className": "se-social-media-image-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "social-media-image"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.snsimg"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "MYBOXMYBOX 추가"
+    },
+    {
+      "className": "se-video-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "video"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.video"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "동영상동영상 추가"
+    },
+    {
+      "className": "se-sticker-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "toggle"
+        },
+        {
+          "name": "data-name",
+          "value": "sticker"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.sticker"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "스티커스티커 추가"
+    },
+    {
+      "className": "se-document-toolbar-icon-select-button se-insert-quotation-default-toolbar-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-value",
+          "value": "default"
+        },
+        {
+          "name": "data-type",
+          "value": "icon-select"
+        },
+        {
+          "name": "data-name",
+          "value": "quotation"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.quota"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "인용구 추가"
+    },
+    {
+      "className": "se-document-toolbar-select-option-button se-text-icon-toolbar-select-option-button __se-sentry",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "icon-select"
+        },
+        {
+          "name": "data-name",
+          "value": "quotation"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "인용구 선택인용구 선택"
+    },
+    {
+      "className": "se-document-toolbar-icon-select-button se-insert-horizontal-line-default-toolbar-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-value",
+          "value": "default"
+        },
+        {
+          "name": "data-type",
+          "value": "icon-select"
+        },
+        {
+          "name": "data-name",
+          "value": "horizontal-line"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.horizt"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "구분선 추가"
+    },
+    {
+      "className": "se-document-toolbar-select-option-button se-text-icon-toolbar-select-option-button __se-sentry",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "icon-select"
+        },
+        {
+          "name": "data-name",
+          "value": "horizontal-line"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "구분선 선택구분선 선택"
+    },
+    {
+      "className": "se-oglink-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "oglink"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.link"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "링크링크 추가"
+    },
+    {
+      "className": "se-file-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "file"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.file"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "파일파일 추가"
+    },
+    {
+      "className": "se-schedule-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "schedule"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.schedule"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "일정일정 추가"
+    },
+    {
+      "className": "se-code-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "code"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.code"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "소스코드소스코드 추가"
+    },
+    {
+      "className": "se-table-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "table"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.table"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "표표 추가"
+    },
+    {
+      "className": "se-formula-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "formula"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.formula"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "수식수식 추가"
+    },
+    {
+      "className": "se-map-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "basic"
+        },
+        {
+          "name": "data-name",
+          "value": "map"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.map"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "장소장소 추가"
+    },
+    {
+      "className": "se-not-sponsored-button-toolbar-button se-document-toolbar-custom-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "custom"
+        },
+        {
+          "name": "data-name",
+          "value": "not-sponsored-button"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.proof"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "내돈내산내돈내산 상품 첨부내돈내산 리뷰 기능이 추가되었"
+    },
+    {
+      "className": "se-search-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "toggle"
+        },
+        {
+          "name": "data-name",
+          "value": "search"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.search"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "글감글감 검색 열기"
+    },
+    {
+      "className": "se-moment-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "toggle"
+        },
+        {
+          "name": "data-name",
+          "value": "moment"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.moment"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "내 클립내 클립 열기"
+    },
+    {
+      "className": "se-library-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "toggle"
+        },
+        {
+          "name": "data-name",
+          "value": "library"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.lib"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "라이브러리라이브러리 열기"
+    },
+    {
+      "className": "se-template-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button",
+      "dataAttrs": [
+        {
+          "name": "data-group",
+          "value": "documentToolbar"
+        },
+        {
+          "name": "data-type",
+          "value": "toggle"
+        },
+        {
+          "name": "data-name",
+          "value": "template"
+        },
+        {
+          "name": "data-log",
+          "value": "dot.template"
+        }
+      ],
+      "onclick": "has onclick",
+      "text": "템플릿템플릿 열기"
+    }
+  ]
+}

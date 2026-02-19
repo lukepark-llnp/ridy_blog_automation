@@ -1,0 +1,290 @@
+{
+  "title": {
+    "container": "se-component se-documentTitle se-l-default",
+    "editable": false,
+    "input": "se-ff-nanumgothic se-fs32 __se-node",
+    "placeholder": null
+  },
+  "toolbar": {
+    "buttonCount": 20,
+    "buttons": [
+      {
+        "ariaLabel": null,
+        "className": "se-image-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "사진사진 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-social-media-image-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "MYBOXMYBOX 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-video-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "동영상동영상 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-sticker-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "스티커스티커 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-document-toolbar-icon-select-button se-insert-quotation-default-toolbar-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "인용구 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-document-toolbar-select-option-button se-text-icon-toolbar-select-option-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "인용구 선택인용구 선택",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-document-toolbar-icon-select-button se-insert-horizontal-line-default-toolbar-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "구분선 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-document-toolbar-select-option-button se-text-icon-toolbar-select-option-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "구분선 선택구분선 선택",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-oglink-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "링크링크 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-file-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "파일파일 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-schedule-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "일정일정 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-code-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "소스코드소스코드 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-table-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "표표 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-formula-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "수식수식 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-map-toolbar-button se-document-toolbar-basic-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "장소장소 추가",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-not-sponsored-button-toolbar-button se-document-toolbar-custom-button se-text-icon-toolbar-button se-highlight-toolbar-button __se-highlight-button se-highlight-tooltip-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "내돈내산내돈내산 상품 첨부내돈내산 리뷰 기능이 추가되었어요.내가 직접 구매한 상품이나 방문한장소들을 리뷰해주세요.",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-search-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button se-highlight-toolbar-button __se-highlight-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "글감글감 검색 열기",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-moment-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "내 클립내 클립 열기",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-library-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "라이브러리라이브러리 열기",
+        "title": ""
+      },
+      {
+        "ariaLabel": null,
+        "className": "se-template-toolbar-button se-document-toolbar-toggle-button se-text-icon-toolbar-button __se-sentry",
+        "dataCommand": null,
+        "id": "",
+        "text": "템플릿템플릿 열기",
+        "title": ""
+      }
+    ],
+    "container": "se-toolbar se-document-toolbar"
+  },
+  "content": {
+    "error": "Main container not found"
+  },
+  "image": {
+    "fileInputs": [],
+    "imageButton": null
+  },
+  "publish": [
+    {
+      "ariaLabel": null,
+      "className": "reserve_btn__Km5Xh",
+      "id": "",
+      "text": "예약 발행 0건"
+    },
+    {
+      "ariaLabel": null,
+      "className": "publish_btn__m9KHH",
+      "id": "",
+      "text": "발행"
+    }
+  ],
+  "structure": {
+    "body": "",
+    "mainSections": [
+      {
+        "className": "",
+        "id": "root",
+        "tagName": "DIV"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "initialState",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "__LOADABLE_REQUIRED_CHUNKS__",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "__LOADABLE_REQUIRED_CHUNKS___ext",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "SCRIPT"
+      },
+      {
+        "className": "",
+        "id": "input_buffer1770209579015",
+        "tagName": "IFRAME"
+      },
+      {
+        "className": "",
+        "id": "",
+        "tagName": "DIV"
+      }
+    ]
+  }
+}

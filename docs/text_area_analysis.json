@@ -1,0 +1,131 @@
+{
+  "text_component_structure": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "className": "se-ff-nanumgothic se-fs16 __se-node",
+                            "contenteditable": null,
+                            "id": "SE-b8c9dd6d-ee49-45df-a3c3-d5ff5eb25365",
+                            "tagName": "SPAN",
+                            "textContent": ""
+                          },
+                          {
+                            "children": [],
+                            "className": "se-placeholder __se_placeholder se-ff-nanumgothic se-fs16 se-placeholder-focused",
+                            "contenteditable": null,
+                            "id": "",
+                            "tagName": "SPAN",
+                            "textContent": "글감과 함께 나의 일상을 기록해보세요!"
+                          }
+                        ],
+                        "className": "se-text-paragraph se-text-paragraph-align-left",
+                        "contenteditable": null,
+                        "id": "SE-74166548-b7d0-4ccf-b7a5-37f7953f1097",
+                        "tagName": "P",
+                        "textContent": "글감과 함께 나의 일상을 기록해보세요!"
+                      }
+                    ],
+                    "className": "se-module se-module-text __se-unit se-is-empty",
+                    "contenteditable": null,
+                    "id": "SE-32ef7584-3c02-4172-9a9a-958538125392",
+                    "tagName": "DIV",
+                    "textContent": "글감과 함께 나의 일상을 기록해보세요!"
+                  }
+                ],
+                "className": "se-section se-section-text se-l-default se-is-focused",
+                "contenteditable": null,
+                "id": "",
+                "tagName": "DIV",
+                "textContent": "글감과 함께 나의 일상을 기록해보세요!"
+              }
+            ],
+            "className": "se-drop-indicator",
+            "contenteditable": null,
+            "id": "",
+            "tagName": "DIV",
+            "textContent": "글감과 함께 나의 일상을 기록해보세요!"
+          }
+        ],
+        "className": "se-component-content",
+        "contenteditable": null,
+        "id": "",
+        "tagName": "DIV",
+        "textContent": "글감과 함께 나의 일상을 기록해보세요!"
+      }
+    ],
+    "className": "se-component se-text se-l-default",
+    "contenteditable": null,
+    "id": "SE-2d0275a5-83c8-4472-a8d6-de9c40780fe5",
+    "tagName": "DIV",
+    "textContent": "글감과 함께 나의 일상을 기록해보세요!"
+  },
+  "contenteditable_path": {
+    "editableDiv": {
+      "className": "",
+      "contenteditable": "true",
+      "id": "",
+      "tagName": "DIV"
+    },
+    "path": [
+      {
+        "className": "",
+        "id": "",
+        "tagName": "DIV"
+      }
+    ],
+    "pathString": "DIV"
+  },
+  "input_test": {
+    "method1_innerHTML": true,
+    "method2_textContent": true,
+    "method3_execCommand": true
+  },
+  "formatting_buttons": {
+    "alignCenter": {
+      "found": false
+    },
+    "alignLeft": {
+      "found": false
+    },
+    "alignRight": {
+      "found": false
+    },
+    "bgColor": {
+      "ariaLabel": null,
+      "className": "se-property-toolbar-color-picker-button se-background-color-toolbar-button __se-sentry",
+      "found": true,
+      "text": "배경색글자 배경색 변경"
+    },
+    "bold": {
+      "ariaLabel": null,
+      "className": "se-bold-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+      "found": true,
+      "text": "굵게굵기 적용"
+    },
+    "color": {
+      "found": false
+    },
+    "italic": {
+      "ariaLabel": null,
+      "className": "se-italic-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+      "found": true,
+      "text": "기울이기기울이기 적용"
+    },
+    "underline": {
+      "ariaLabel": null,
+      "className": "se-underline-toolbar-button se-property-toolbar-toggle-button __se-sentry",
+      "found": true,
+      "text": "밑줄밑줄 적용"
+    }
+  }
+}
