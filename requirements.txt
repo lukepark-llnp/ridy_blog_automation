@@ -2,7 +2,6 @@
 slack-sdk==3.27.1
 slack-bolt==1.18.1
 
-
 # Image Processing
 Pillow>=10.2.0
 
@@ -10,11 +9,14 @@ Pillow>=10.2.0
 selenium==4.18.1
 undetected-chromedriver==3.5.5
 webdriver-manager==4.0.1
+beautifulsoup4==4.14.3
 
 # LLM API
 requests==2.31.0
+anthropic==0.77.1
 
 # Utils
 python-dotenv==1.0.1
 pydantic==2.6.1
 pydantic-settings==2.2.1
+pyperclip==1.11.0
