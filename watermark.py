@@ -1,5 +1,6 @@
 """Image watermark processing"""
 from PIL import Image
+from typing import Union
 from pathlib import Path
 import logging
 
@@ -9,7 +10,7 @@ logger = logging.getLogger(__name__)
 LOGO_PATH = Path(__file__).parent / "assets" / "ridy_logo.png"
 
 
-def add_watermark(image_path: str | Path, output_path: str | Path, logo_path: Path = LOGO_PATH) -> Path:
+def add_watermark(image_path: Union[str, Path], output_path: Union[str, Path], logo_path: Path = LOGO_PATH) -> Path:
     """
     Add RIDY logo watermark to image (bottom-right corner)
     

@@ -1,6 +1,7 @@
 """Slack bot for Naver blog automation"""
 import os
 import re
+from typing import Optional
 import logging
 import time
 from pathlib import Path
@@ -35,7 +36,7 @@ logger = logging.getLogger(__name__)
 app = App(token=settings.slack_bot_token)
 
 
-def parse_message(text: str) -> dict | None:
+def parse_message(text: str) -> Optional[dict]:
     """
     Parse Slack message for blog post data (legacy text-based input)
     """
