@@ -7,6 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import logging
+from config import settings
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -23,7 +24,7 @@ def manual_login():
     options.add_argument("--disable-blink-features=AutomationControlled")
     
     # 영구 프로필 사용
-    profile_dir = Path.home() / "agents/naverblog_automation/chrome_data"
+    profile_dir = Path(settings.chrome_profile_path)
     profile_dir.mkdir(parents=True, exist_ok=True)
     options.add_argument(f"user-data-dir={profile_dir}")
     
@@ -67,7 +68,7 @@ def manual_login():
         logger.info("💾 쿠키 저장 중...")
         cookies = driver.get_cookies()
         
-        cookie_path = Path.home() / "agents/naverblog_automation/naver_cookies.json"
+        cookie_path = Path(settings.cookie_json_path)
         import json
         with open(cookie_path, 'w', encoding='utf-8') as f:
             json.dump(cookies, f, indent=2)

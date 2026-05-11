@@ -175,12 +175,12 @@ def build_blog_html(data: dict, images: list[str]) -> str:
     <!-- Contact Info -->
     <div class="footer">
         <p><strong>문의</strong></p>
-        <p>번호: {data.get('phone', '010-8575-2119')}</p>
-        <p><strong>카카오톡 채널:</strong></p>
+        <p>번호: {data.get('phone', '1555-6595')}</p>
         <div class="footer-links">
-            <a href="{data.get('kakao_link_1', '')}">🔗 RIDY 리스 기본 가이드</a>
-            <a href="{data.get('kakao_link_2', '')}">🔗 RIDY 오픈 카톡 가이드1</a>
-            <a href="{data.get('kakao_link_3', '')}">🔗 RIDY 오픈 카톡 가이드2</a>
+            <a href="https://pf.kakao.com/_xgxoxexen/chat">카카오톡 채널</a>
+            <a href="https://www.ridy.co.kr/">RIDY 바로 가기</a>
+            <a href="https://www.ridy.co.kr/service/payout">PAYOUT 바로 가기</a>
+            <a href="https://tally.so/r/mYLXOd">서비스센터 가입 문의</a>
         </div>
     </div>
 

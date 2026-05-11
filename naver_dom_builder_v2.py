@@ -199,24 +199,25 @@ class NaverDOMBuilderV2:
         # 22. 연락처 (가운데)
         self.elements.append({
             'type': 'text',
-            'content': '문의\n번호: 010-8575-2119\n\n카카오톡 채널:',
+            'content': '문의\n번호: 1555-6595',
             'align': 'center',
             'size': 'normal',
             'bold': False
         })
-        
-        # 23. 카톡 링크 (가운데, 파란색)
-        kakao_links = [
-            '🔗 RIDY 리스 기본 가이드',
-            '🔗 RIDY 오픈 카톡 가이드1',
-            '🔗 RIDY 오픈 카톡 가이드2'
+
+        # 23. 푸터 링크 (가운데, 파란색)
+        footer_links = [
+            ("카카오톡 채널", "https://pf.kakao.com/_xgxoxexen/chat"),
+            ("RIDY 바로 가기", "https://www.ridy.co.kr/"),
+            ("PAYOUT 바로 가기", "https://www.ridy.co.kr/service/payout"),
+            ("서비스센터 가입 문의", "https://tally.so/r/mYLXOd"),
         ]
-        
-        for link_text in kakao_links:
+
+        for link_text, link_url in footer_links:
             self.elements.append({
                 'type': 'link',
                 'text': link_text,
-                'url': self._get_kakao_url(link_text),
+                'url': link_url,
                 'align': 'center',
                 'color': 'blue'
             })
@@ -309,16 +310,6 @@ class NaverDOMBuilderV2:
             return tags
         return []
     
-    def _get_kakao_url(self, link_text: str) -> str:
-        """카톡 링크 매핑"""
-        if '기본 가이드' in link_text:
-            return 'https://pf.kakao.com/_xlxdClG/chat'
-        elif '가이드1' in link_text:
-            return 'https://open.kakao.com/o/sFLWe6Ug'
-        elif '가이드2' in link_text:
-            return 'https://open.kakao.com/o/sLLWhAPg'
-        return ''
-
 
 def build_naver_dom_v2(html_content: str, data: dict) -> list[dict]:
     """

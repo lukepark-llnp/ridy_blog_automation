@@ -32,13 +32,13 @@ class NaverBlogPublisherSelenium:
         options.add_argument("--disable-blink-features=AutomationControlled")
         
         # 사용자 프로필 유지 (쿠키/세션 영구 저장)
-        profile_dir = Path.home() / "agents/naverblog_automation/chrome_data"
+        profile_dir = Path(settings.chrome_profile_path)
         profile_dir.mkdir(parents=True, exist_ok=True)
         options.add_argument(f"user-data-dir={profile_dir}")
-        
+
         self.driver = webdriver.Chrome(options=options)
         wait = WebDriverWait(self.driver, 10)
-        
+
         try:
             logger.info("🔐 Navigating to login...")
             self.driver.get("https://nid.naver.com/nidlogin.login")
@@ -117,7 +117,7 @@ class NaverBlogPublisherSelenium:
         options.add_argument("--disable-blink-features=AutomationControlled")
         
         # 사용자 프로필 유지 (쿠키/세션 영구 저장)
-        profile_dir = Path.home() / "agents/naverblog_automation/chrome_data"
+        profile_dir = Path(settings.chrome_profile_path)
         options.add_argument(f"user-data-dir={profile_dir}")
         
         self.driver = webdriver.Chrome(options=options)
@@ -397,183 +397,150 @@ class NaverBlogPublisherSelenium:
             except Exception as e:
                 logger.warning(f"  ⚠️ Title check failed: {e}")
             
-            logger.info("📤 Publishing (2-step process)...")
-            
-            # Step 1: 우측 상단 "발행" 버튼 클릭 → 모달 열기
-            logger.info("  Step 1: Opening publish modal...")
-            
-            publish_btn = None
-            
-            # [시도 1] iframe 밖에서 검색 (CSS Selector)
-            self.driver.switch_to.default_content()
-            time.sleep(1)
-            try:
-                publish_btn = self.driver.find_element(By.CSS_SELECTOR, "button.publish_btn__m9KHH, button[data-click-area='tpb.publish']")
-                logger.info("  → Found publish button by selector (outside iframe)")
-            except:
-                pass
-            
-            # [시도 2] iframe 밖에서 텍스트 검색
-            if not publish_btn:
-                try:
-                    # 모든 버튼 중 "발행" 텍스트가 있고 "예약"이 없는 것
-                    buttons = self.driver.find_elements(By.TAG_NAME, "button")
-                    for btn in buttons:
-                        if btn.is_displayed() and "발행" in btn.text and "예약" not in btn.text:
-                            publish_btn = btn
-                            logger.info("  → Found publish button by text (outside iframe)")
-                            break
-                except:
-                    pass
-            
-            # [시도 3] iframe 안에서 검색 (혹시 모르니)
-            if not publish_btn:
-                try:
-                    self.driver.switch_to.frame("mainFrame")
-                    publish_btn = self.driver.find_element(By.CSS_SELECTOR, "button.publish_btn__m9KHH, button[data-click-area='tpb.publish']")
-                    logger.info("  → Found publish button by selector (inside iframe)")
-                except:
-                    self.driver.switch_to.default_content() # 다시 밖으로
-            
-            # [시도 4] JS로 강제 탐색 (document.querySelectorAll)
-            if not publish_btn:
-                self.driver.switch_to.default_content()
-                script = """
-                var btns = document.querySelectorAll('button');
-                for (var i = 0; i < btns.length; i++) {
-                    if (btns[i].textContent.includes('발행') && !btns[i].textContent.includes('예약')) {
-                        return btns[i];
-                    }
-                }
-                return null;
-                """
-                publish_btn = self.driver.execute_script(script)
-                if publish_btn:
-                    logger.info("  → Found publish button by JS")
+            # === 발행 프로세스 (자가 복구 포함) ===
+            max_publish_step_retries = 2
+            last_publish_error = None
 
-            if publish_btn:
-                # JS 강제 클릭
-                self.driver.execute_script("arguments[0].click();", publish_btn)
-                logger.info("  ✅ Clicked publish button (JS)")
-                time.sleep(3) # 모달 뜨는 시간 대기
-            else:
-                logger.error("  ❌ Publish button not found anywhere!")
-                self.driver.save_screenshot("publish_btn_not_found.png")
-                raise Exception("Publish button not found")
-            
-            # Step 2: 모달 대기 후 태그 입력 + 발행 버튼 클릭
-            logger.info("  Step 2: Waiting for publish modal...")
-            time.sleep(3)  # 모달 로드 대기
-            
-            # 태그 입력
-            logger.info("  Step 2-1: Inputting SEO tags...")
-            try:
-                # 전달받은 LLM 태그가 있으면 사용, 없으면 DB에서 생성
-                if not tags:
-                    # SEO 태그 생성 (Fallback)
-                    from seo_generator import generate_seo_tags
-                    tags = generate_seo_tags(data)
-                
-                # 태그 최대 30개 (네이버 최대 제한)
-                final_tags = tags[:30]
-                
-                logger.info(f"    Tags ({len(final_tags)}개): {', '.join(final_tags[:5])}...")
-                
-                # 태그 입력 필드 찾기 (id="tag-input")
-                tag_input = self.driver.find_element(By.ID, "tag-input")
-                if tag_input:
-                    # 클릭해서 포커스
-                    tag_input.click()
-                    time.sleep(0.5)
-                    
-                    # 방법: 각 태그를 하나씩 입력하고 Enter (가장 확실함)
-                    for i, tag in enumerate(final_tags):
-                        # 태그 입력
-                        tag_input.send_keys(tag)
-                        time.sleep(0.1)
-                        
-                        # Enter로 확정
-                        tag_input.send_keys(Keys.RETURN)
-                        time.sleep(0.1)
-                        
-                        if (i + 1) % 10 == 0:
-                            logger.info(f"      Progress: {i+1}/{len(final_tags)} tags")
-                    
-                    logger.info(f"    ✅ Tags entered: {len(final_tags)}개")
-                    
-                    # 태그가 모두 등록될 시간 대기 (네이버 서버 처리 시간 고려)
-                    time.sleep(5)
-                else:
-                    logger.warning("    ⚠️ Tag input field (#tag-input) not found")
-                    
-            except Exception as e:
-                logger.warning(f"    ⚠️ Tag input failed: {e}")
-            
-            logger.info("  Step 2-2: Clicking modal publish button...")
-            
-            # JavaScript로 모달 내 발행 버튼 클릭
-            modal_click_success = self.driver.execute_script("""
-                // 모든 버튼 다시 검색 (모달 포함)
-                const allButtons = Array.from(document.querySelectorAll('button'));
-                console.log('Total buttons after modal:', allButtons.length);
-                
-                // "발행" 버튼들 찾기
-                const publishButtons = allButtons.filter(btn => btn.textContent.includes('발행'));
-                console.log('Publish buttons found:', publishButtons.length);
-                
-                // 마지막 발행 버튼이 모달 내부 버튼
-                if (publishButtons.length > 0) {
-                    const modalBtn = publishButtons[publishButtons.length - 1];
-                    console.log('Clicking modal publish button:', modalBtn.textContent);
-                    modalBtn.click();
-                    return {success: true, text: modalBtn.textContent.trim(), total: publishButtons.length};
-                }
-                
-                return {success: false, total: publishButtons.length};
-            """)
-            
-            if modal_click_success and modal_click_success.get('success'):
-                logger.info(f"  ✅ Clicked modal publish button: '{modal_click_success.get('text')}' ({modal_click_success.get('total')} publish buttons found)")
-            else:
-                total = modal_click_success.get('total', 0) if modal_click_success else 0
-                logger.error(f"  ❌ Modal publish button not found! ({total} publish buttons)")
-                raise Exception("Modal publish button not found")
-            
-            # 발행 완료 대기 - URL 변경 확인
-            logger.info("  ⏳ Waiting for publish to complete...")
-            write_url = self.driver.current_url
-            max_wait = 60  # 최대 60초 대기 (이미지 많을 때 대비)
-            waited = 0
-            
-            while waited < max_wait:
-                time.sleep(1)
-                waited += 1
-                current_url = self.driver.current_url
-                
-                # URL이 변경되었는지 확인 (작성 페이지를 벗어났는지)
-                # 작성 페이지: "Redirect=Write" 포함
-                # 발행 완료: "ridyservice/숫자" 형식 (예: /ridyservice/224173390345)
-                if 'Redirect=Write' not in current_url:
-                    logger.info(f"  ✅ Published! Redirected to: {current_url}")
-                    time.sleep(1)  # 추가 대기
-                    return current_url
-                
-                # 여전히 작성 페이지면 계속 대기
-                if waited % 5 == 0:
-                    logger.info(f"    Still waiting... ({waited}/{max_wait}s)")
-            
-            # 타임아웃 - URL이 변경되지 않았다면 실패
-            final_url = self.driver.current_url
-            if 'Redirect=Write' in final_url:
-                logger.error(f"  ❌ Publish timeout! Still on write page: {final_url}")
-                raise Exception(f"Publish failed - still on write page after {max_wait}s")
-            
-            logger.info(f"✅ SUCCESS: {final_url}")
-            
-            # 발행 성공 후 쿠키 저장 (세션 갱신 반영)
-            self._save_cookies_json()
-            
-            return final_url
+            for pub_step_attempt in range(max_publish_step_retries + 1):
+                try:
+                    if pub_step_attempt > 0:
+                        logger.info(f"🔄 발행 단계 재시도 {pub_step_attempt}/{max_publish_step_retries}...")
+                        # 에러 팝업 정리
+                        self._dismiss_error_popup()
+                        time.sleep(2)
+                        # 페이지 새로고침 대신 에디터로 복귀 시도
+                        self.driver.switch_to.default_content()
+                        try:
+                            self.driver.switch_to.frame("mainFrame")
+                        except:
+                            pass
+
+                    logger.info(f"📤 Publishing (2-step){f' [retry {pub_step_attempt}]' if pub_step_attempt > 0 else ''}...")
+
+                    # 발행 전 에러 팝업 정리
+                    self.driver.switch_to.default_content()
+                    try:
+                        self.driver.switch_to.frame("mainFrame")
+                    except:
+                        pass
+                    popup_cleared = self._dismiss_error_popup()
+                    if popup_cleared:
+                        logger.info("  🧹 Pre-publish: cleared lingering error popup")
+                        time.sleep(1)
+
+                    # Step 1: 우측 상단 "발행" 버튼 클릭 → 모달 열기
+                    logger.info("  Step 1: Opening publish modal...")
+
+                    publish_btn = self._find_publish_button()
+
+                    if publish_btn:
+                        self.driver.execute_script("arguments[0].click();", publish_btn)
+                        logger.info("  ✅ Clicked publish button (JS)")
+                        time.sleep(3)
+                    else:
+                        logger.error("  ❌ Publish button not found anywhere!")
+                        self.driver.save_screenshot("publish_btn_not_found.png")
+                        raise Exception("PUBLISH_BTN_NOT_FOUND: 발행 버튼을 찾을 수 없습니다")
+
+                    # Step 2: 모달 대기 후 태그 입력 + 발행 버튼 클릭
+                    logger.info("  Step 2: Waiting for publish modal...")
+                    time.sleep(3)
+
+                    # 모달이 열렸는지 확인 (tag-input 존재 여부)
+                    modal_opened = False
+                    try:
+                        self.driver.find_element(By.ID, "tag-input")
+                        modal_opened = True
+                    except:
+                        # 에러 팝업이 모달을 가리고 있을 수 있음
+                        if self._dismiss_error_popup():
+                            logger.warning("  🧹 Error popup was blocking publish modal - dismissed")
+                            time.sleep(2)
+                            # 발행 버튼 다시 클릭
+                            publish_btn = self._find_publish_button()
+                            if publish_btn:
+                                self.driver.execute_script("arguments[0].click();", publish_btn)
+                                time.sleep(3)
+                                try:
+                                    self.driver.find_element(By.ID, "tag-input")
+                                    modal_opened = True
+                                except:
+                                    pass
+
+                    if not modal_opened:
+                        raise Exception("MODAL_BLOCKED: 발행 모달이 열리지 않습니다 (에러 팝업 또는 네이버 오류)")
+
+                    # 태그 입력 (첫 시도에만)
+                    if pub_step_attempt == 0:
+                        self._input_seo_tags(tags, data)
+
+                    logger.info("  Step 2-2: Clicking modal publish button...")
+
+                    modal_click_success = self.driver.execute_script("""
+                        const allButtons = Array.from(document.querySelectorAll('button'));
+                        const publishButtons = allButtons.filter(btn => btn.textContent.includes('발행'));
+                        if (publishButtons.length > 0) {
+                            const modalBtn = publishButtons[publishButtons.length - 1];
+                            modalBtn.click();
+                            return {success: true, text: modalBtn.textContent.trim(), total: publishButtons.length};
+                        }
+                        return {success: false, total: publishButtons.length};
+                    """)
+
+                    if modal_click_success and modal_click_success.get('success'):
+                        logger.info(f"  ✅ Clicked modal publish button: '{modal_click_success.get('text')}' ({modal_click_success.get('total')} publish buttons found)")
+                    else:
+                        raise Exception("MODAL_BTN_NOT_FOUND: 모달 내 발행 버튼을 찾을 수 없습니다")
+
+                    # 발행 완료 대기 - URL 변경 확인
+                    logger.info("  ⏳ Waiting for publish to complete...")
+                    max_wait = 60
+                    waited = 0
+
+                    while waited < max_wait:
+                        time.sleep(1)
+                        waited += 1
+                        current_url = self.driver.current_url
+
+                        if 'Redirect=Write' not in current_url:
+                            logger.info(f"  ✅ Published! Redirected to: {current_url}")
+                            time.sleep(1)
+
+                            self._save_cookies_json()
+                            return current_url
+
+                        # 대기 중 에러 팝업 감지
+                        if waited % 10 == 0:
+                            if self._dismiss_error_popup():
+                                logger.warning(f"  🧹 Error popup appeared during publish wait - dismissed (will retry)")
+                                raise Exception("POPUP_DURING_PUBLISH: 발행 중 에러 팝업 발생 - 네이버 파일 전송 오류")
+
+                        if waited % 5 == 0:
+                            logger.info(f"    Still waiting... ({waited}/{max_wait}s)")
+
+                    # 타임아웃
+                    # 팝업 확인
+                    if self._dismiss_error_popup():
+                        raise Exception("PUBLISH_TIMEOUT_POPUP: 발행 타임아웃 - 에러 팝업이 발행을 차단함")
+                    else:
+                        raise Exception(f"PUBLISH_TIMEOUT: 발행 타임아웃 - {max_wait}초 대기 후에도 페이지 전환 없음")
+
+                except Exception as step_error:
+                    last_publish_error = step_error
+                    error_code = str(step_error).split(':')[0] if ':' in str(step_error) else 'UNKNOWN'
+                    logger.error(f"  ❌ Publish step failed [{error_code}]: {step_error}")
+
+                    # 재시도 가능한 에러인지 판단
+                    retryable_codes = ['POPUP_DURING_PUBLISH', 'PUBLISH_TIMEOUT_POPUP', 'MODAL_BLOCKED', 'PUBLISH_TIMEOUT']
+                    if error_code in retryable_codes and pub_step_attempt < max_publish_step_retries:
+                        logger.info(f"  🔄 Retryable error - will retry publish step...")
+                        continue
+                    else:
+                        raise
+
+            # 모든 발행 단계 재시도 실패
+            if last_publish_error:
+                raise last_publish_error
             
         except Exception as e:
             logger.error(f"❌ Failed: {e}")
@@ -590,11 +557,90 @@ class NaverBlogPublisherSelenium:
             if self.driver:
                 self.driver.quit()
     
+    def _find_publish_button(self):
+        """발행 버튼 탐색 (여러 전략)"""
+        publish_btn = None
+
+        # [시도 1] iframe 밖에서 CSS Selector
+        self.driver.switch_to.default_content()
+        time.sleep(0.5)
+        try:
+            publish_btn = self.driver.find_element(By.CSS_SELECTOR, "button.publish_btn__m9KHH, button[data-click-area='tpb.publish']")
+            logger.info("  → Found publish button by selector (outside iframe)")
+            return publish_btn
+        except:
+            pass
+
+        # [시도 2] iframe 밖에서 텍스트 검색
+        try:
+            buttons = self.driver.find_elements(By.TAG_NAME, "button")
+            for btn in buttons:
+                if btn.is_displayed() and "발행" in btn.text and "예약" not in btn.text:
+                    logger.info("  → Found publish button by text (outside iframe)")
+                    return btn
+        except:
+            pass
+
+        # [시도 3] iframe 안에서 검색
+        try:
+            self.driver.switch_to.frame("mainFrame")
+            publish_btn = self.driver.find_element(By.CSS_SELECTOR, "button.publish_btn__m9KHH, button[data-click-area='tpb.publish']")
+            logger.info("  → Found publish button by selector (inside iframe)")
+            return publish_btn
+        except:
+            self.driver.switch_to.default_content()
+
+        # [시도 4] JS 탐색
+        self.driver.switch_to.default_content()
+        publish_btn = self.driver.execute_script("""
+            var btns = document.querySelectorAll('button');
+            for (var i = 0; i < btns.length; i++) {
+                if (btns[i].textContent.includes('발행') && !btns[i].textContent.includes('예약')) {
+                    return btns[i];
+                }
+            }
+            return null;
+        """)
+        if publish_btn:
+            logger.info("  → Found publish button by JS")
+        return publish_btn
+
+    def _input_seo_tags(self, tags, data):
+        """SEO 태그 입력"""
+        logger.info("  Step 2-1: Inputting SEO tags...")
+        try:
+            if not tags:
+                from seo_generator import generate_seo_tags
+                tags = generate_seo_tags(data)
+
+            final_tags = tags[:30]
+            logger.info(f"    Tags ({len(final_tags)}개): {', '.join(final_tags[:5])}...")
+
+            tag_input = self.driver.find_element(By.ID, "tag-input")
+            if tag_input:
+                tag_input.click()
+                time.sleep(0.5)
+
+                for i, tag in enumerate(final_tags):
+                    tag_input.send_keys(tag)
+                    time.sleep(0.1)
+                    tag_input.send_keys(Keys.RETURN)
+                    time.sleep(0.1)
+                    if (i + 1) % 10 == 0:
+                        logger.info(f"      Progress: {i+1}/{len(final_tags)} tags")
+
+                logger.info(f"    ✅ Tags entered: {len(final_tags)}개")
+                time.sleep(5)
+            else:
+                logger.warning("    ⚠️ Tag input field (#tag-input) not found")
+        except Exception as e:
+            logger.warning(f"    ⚠️ Tag input failed: {e}")
+
     def _save_cookies_json(self):
         """Save cookies to JSON file (more robust than pickle)"""
         try:
             cookies = self.driver.get_cookies()
-            cookie_path = Path.home() / "agents/naverblog_automation/naver_cookies.json"
+            cookie_path = Path(settings.cookie_json_path)
             import json
             with open(cookie_path, 'w', encoding='utf-8') as f:
                 json.dump(cookies, f, indent=2)
@@ -604,7 +650,7 @@ class NaverBlogPublisherSelenium:
 
     def _load_cookies_json(self):
         """Load cookies from JSON file (naver-cafe 스킬 방식)"""
-        cookie_path = Path.home() / "agents/naverblog_automation/naver_cookies.json"
+        cookie_path = Path(settings.cookie_json_path)
         if not cookie_path.exists():
             logger.info("  ℹ️ No saved cookies found")
             return False
@@ -661,7 +707,7 @@ class NaverBlogPublisherSelenium:
         options.add_argument("--disable-blink-features=AutomationControlled")
         
         # 사용자 프로필 유지
-        profile_dir = Path.home() / "agents/naverblog_automation/chrome_data"
+        profile_dir = Path(settings.chrome_profile_path)
         profile_dir.mkdir(parents=True, exist_ok=True)
         options.add_argument(f"user-data-dir={profile_dir}")
         
@@ -716,91 +762,167 @@ class NaverBlogPublisherSelenium:
             if self.driver:
                 self.driver.quit()
     
+    def _dismiss_error_popup(self):
+        """네이버 에디터 에러 팝업 감지 및 닫기"""
+        try:
+            # "확인" 버튼이 있는 에러 팝업 찾기
+            confirm_btns = self.driver.find_elements(By.XPATH,
+                "//*[contains(@class, 'popup') or contains(@class, 'modal') or contains(@class, 'layer')]"
+                "//button[contains(text(), '확인')]"
+            )
+            for btn in confirm_btns:
+                if btn.is_displayed():
+                    btn.click()
+                    logger.info("  🔄 Dismissed error popup (확인 button)")
+                    time.sleep(1)
+                    return True
+
+            # JS로도 시도
+            dismissed = self.driver.execute_script("""
+                var btns = document.querySelectorAll('button');
+                for (var i = 0; i < btns.length; i++) {
+                    var btn = btns[i];
+                    if (btn.offsetParent !== null && btn.textContent.trim() === '확인') {
+                        var parent = btn.closest('.layer_popup, .popup, .modal, [class*="layer"], [class*="popup"]');
+                        if (parent) { btn.click(); return true; }
+                    }
+                }
+                return false;
+            """)
+            if dismissed:
+                logger.info("  🔄 Dismissed error popup (JS)")
+                time.sleep(1)
+                return True
+        except:
+            pass
+        return False
+
+    def _find_file_input(self):
+        """파일 input 요소 탐색 (여러 전략)"""
+        # 전략 1: 직접 탐색
+        try:
+            inputs = self.driver.find_elements(By.XPATH, "//input[@type='file']")
+            if inputs:
+                return inputs[0]
+        except:
+            pass
+
+        # 전략 2: 사진 버튼 클릭 후 탐색
+        try:
+            selectors = [
+                ".se-image-toolbar-button",
+                "button.se-image-toolbar-button",
+                "[data-name='image']",
+                "button[data-name='image']",
+            ]
+            for sel in selectors:
+                btns = self.driver.find_elements(By.CSS_SELECTOR, sel)
+                if btns and btns[0].is_displayed():
+                    self.driver.execute_script("arguments[0].click();", btns[0])
+                    time.sleep(1.5)
+                    inputs = self.driver.find_elements(By.XPATH, "//input[@type='file']")
+                    if inputs:
+                        return inputs[0]
+        except:
+            pass
+
+        # 전략 3: JS로 file input 생성 시도
+        try:
+            file_input = self.driver.execute_script("""
+                var existing = document.querySelector('input[type="file"]');
+                if (existing) return existing;
+                // 이미지 버튼을 JS로 찾아 클릭
+                var toolbar = document.querySelector('.se-toolbar');
+                if (toolbar) {
+                    var imgBtn = toolbar.querySelector('[data-name="image"], .se-image-toolbar-button');
+                    if (imgBtn) { imgBtn.click(); }
+                }
+                return null;
+            """)
+            if file_input:
+                return file_input
+            time.sleep(1.5)
+            inputs = self.driver.find_elements(By.XPATH, "//input[@type='file']")
+            if inputs:
+                return inputs[0]
+        except:
+            pass
+
+        return None
+
     def _upload_images_selenium(self, images: list[Path], as_group: bool = False):
         """
-        이미지 업로드 (순서 보장 강화)
+        이미지 업로드 (에러 팝업 감지 + 재시도 로직 포함)
         """
         if not images:
             return
 
-        # 절대 경로 변환
         abs_paths = [str(img.absolute()) for img in images]
-        
-        try:
-            # 1. 파일 업로드
-            file_input = None
-            try:
-                inputs = self.driver.find_elements(By.XPATH, "//input[@type='file']")
-                if inputs:
-                    file_input = inputs[0]
-            except:
-                pass
-            
-            if not file_input:
-                # 사진 버튼 클릭
-                try:
-                    selectors = [".se-image-toolbar-button", "button.se-image-toolbar-button"]
-                    photo_btn = None
-                    for sel in selectors:
-                        btns = self.driver.find_elements(By.CSS_SELECTOR, sel)
-                        if btns:
-                            photo_btn = btns[0]
-                            break
-                    
-                    if photo_btn:
-                        # JS 클릭
-                        self.driver.execute_script("arguments[0].click();", photo_btn)
-                        time.sleep(1)
-                        inputs = self.driver.find_elements(By.XPATH, "//input[@type='file']")
-                        if inputs:
-                            file_input = inputs[0]
-                except:
-                    pass
+        max_retries = 3
 
-            if file_input:
-                logger.info(f"  📤 Sending {len(images)} images...")
-                file_input.send_keys("\n".join(abs_paths))
-                
-                # 업로드 대기 (시간 증가)
-                wait_time = 5 + len(images) * 1.5
-                time.sleep(wait_time)
-                
-                # 2. 콜라주(그룹) 처리
-                if as_group and len(images) > 1:
-                    self._handle_collage_popup()
-                
-                # [중요] 업로드 후 커서를 맨 끝으로 확실하게 이동
-                # 이미지가 삽입된 후 포커스가 이미지에 있거나 꼬일 수 있음
-                time.sleep(1)
-                
-                # JS로 맨 끝에 빈 P태그 하나 추가해서 거기로 포커스 이동 (가장 안전)
-                self.driver.execute_script("""
-                    var editor = document.querySelector('div[contenteditable="true"]');
-                    if (editor) {
-                        var p = document.createElement('p');
-                        p.innerHTML = '<br>';
-                        editor.appendChild(p);
-                        
-                        var range = document.createRange();
-                        range.selectNodeContents(p);
-                        range.collapse(false);
-                        var sel = window.getSelection();
-                        sel.removeAllRanges();
-                        sel.addRange(range);
-                        
-                        p.scrollIntoView();
-                    }
-                """)
-                time.sleep(0.5)
-                
-                logger.info(f"  ✅ Upload complete & Cursor moved to end")
-            else:
-                logger.error("  ❌ Fatal: File input not found")
-                
-        except Exception as e:
-            logger.error(f"  ❌ Upload failed: {e}")
-            import traceback
-            traceback.print_exc()
+        for attempt in range(max_retries):
+            try:
+                # 에러 팝업이 떠있으면 먼저 닫기
+                self._dismiss_error_popup()
+
+                # 파일 input 탐색
+                file_input = self._find_file_input()
+
+                if file_input:
+                    logger.info(f"  📤 Sending {len(images)} images...{f' (retry {attempt+1})' if attempt > 0 else ''}")
+                    file_input.send_keys("\n".join(abs_paths))
+
+                    # 업로드 대기
+                    wait_time = 5 + len(images) * 1.5
+                    time.sleep(wait_time)
+
+                    # 에러 팝업 체크 (업로드 직후)
+                    if self._dismiss_error_popup():
+                        logger.warning(f"  ⚠️ Upload error detected after send (attempt {attempt+1}/{max_retries})")
+                        time.sleep(3)
+                        continue  # 재시도
+
+                    # 콜라주(그룹) 처리
+                    if as_group and len(images) > 1:
+                        self._handle_collage_popup()
+
+                    # 커서를 맨 끝으로 이동
+                    time.sleep(1)
+                    self.driver.execute_script("""
+                        var editor = document.querySelector('div[contenteditable="true"]');
+                        if (editor) {
+                            var p = document.createElement('p');
+                            p.innerHTML = '<br>';
+                            editor.appendChild(p);
+                            var range = document.createRange();
+                            range.selectNodeContents(p);
+                            range.collapse(false);
+                            var sel = window.getSelection();
+                            sel.removeAllRanges();
+                            sel.addRange(range);
+                            p.scrollIntoView();
+                        }
+                    """)
+                    time.sleep(0.5)
+
+                    logger.info(f"  ✅ Upload complete & Cursor moved to end")
+                    return  # 성공
+                else:
+                    logger.warning(f"  ⚠️ File input not found (attempt {attempt+1}/{max_retries})")
+                    if attempt < max_retries - 1:
+                        time.sleep(3)
+                        continue
+
+            except Exception as e:
+                logger.warning(f"  ⚠️ Upload attempt {attempt+1} failed: {e}")
+                if attempt < max_retries - 1:
+                    self._dismiss_error_popup()
+                    time.sleep(3)
+                    continue
+
+        # 모든 재시도 실패
+        logger.error(f"  ❌ Image upload failed after {max_retries} attempts - skipping")
+        self._dismiss_error_popup()  # 마지막으로 팝업 정리
 
     def _handle_collage_popup(self):
         """콜라주(이미지 그룹) 버튼 클릭 처리"""

@@ -310,94 +310,209 @@ def process_publish(client, event, data: dict, user_id: str, files: list):
         progress.stats['title'] = title
         pub_logger.log_step('content', 'success', {'title': title})
         
-        # Publish to Naver
-        progress.update('publish', '네이버 블로그 API 호출 중')
-        
-        try:
-            publisher = NaverBlogPublisher()
-            published_url = publisher.publish(
-                title=title,
-                html_content="", # Not used
-                images=final_images, # Main images + Emojis
-                footer_images=footer_images,
-                data=structured_elements,
-                tags=seo_tags
-            )
-            
-            # Check if draft saved (semi-auto mode)
-            if published_url == "DRAFT_SAVED":
-                progress.complete_step('publish', '💾 임시저장 완료')
-                pub_logger.log_step('publish', 'success', {'status': 'draft_saved'})
-                
-                # Finish logging
-                duration = time.time() - start_time
-                log_path = pub_logger.finish(True, {
-                    'status': 'draft_saved',
-                    'title': title,
-                    'image_count': len(watermarked_images)
-                })
-                
-                # Send draft saved message
-                client.chat_postMessage(
-                    channel=channel,
-                    thread_ts=thread_ts,
-                    text=f"<@{user_id}> 💾 **임시저장 완료!**\n\n"
-                         f"**제목:** {title}\n"
-                         f"**이미지:** {len(watermarked_images) + len(footer_images)}장\n\n"
-                         f"👉 **네이버 블로그에서 발행해주세요:**\n"
-                         f"https://blog.naver.com/ridyservice\n\n"
-                         f"📱 PC/모바일 어디서든 가능합니다!\n"
-                         f"⏱️ 소요시간: {duration:.1f}초"
+        # Publish to Naver (자가 복구 + 재시도 로직)
+        max_publish_retries = 2
+        retry_delay_seconds = 300  # 5분
+
+        # 에러 코드별 사용자 친화적 메시지 매핑
+        ERROR_MESSAGES = {
+            'POPUP_DURING_PUBLISH': {
+                'emoji': '🔴',
+                'cause': '네이버 파일 전송 오류 팝업이 발행 도중 나타남',
+                'detail': '네이버 서버에서 이미지 처리 중 일시적 오류가 발생했습니다.',
+                'action': '에러 팝업을 자동으로 닫고 발행을 재시도합니다.',
+            },
+            'PUBLISH_TIMEOUT_POPUP': {
+                'emoji': '🟠',
+                'cause': '에러 팝업이 발행 완료를 차단',
+                'detail': '파일 전송 오류 팝업이 발행 프로세스를 막아 타임아웃이 발생했습니다.',
+                'action': '팝업을 닫고 새 세션으로 발행을 재시도합니다.',
+            },
+            'MODAL_BLOCKED': {
+                'emoji': '🟡',
+                'cause': '발행 모달이 열리지 않음',
+                'detail': '에러 팝업 또는 네이버 에디터 오류로 발행 창이 열리지 않았습니다.',
+                'action': '에러 팝업 제거 후 발행 버튼을 다시 클릭합니다.',
+            },
+            'PUBLISH_TIMEOUT': {
+                'emoji': '🟤',
+                'cause': '발행 타임아웃 (60초 초과)',
+                'detail': '발행 버튼을 클릭했으나 네이버 서버가 응답하지 않았습니다.',
+                'action': '새 세션을 열어 처음부터 다시 시도합니다.',
+            },
+            'PUBLISH_BTN_NOT_FOUND': {
+                'emoji': '⚫',
+                'cause': '발행 버튼을 찾을 수 없음',
+                'detail': '네이버 에디터 화면에서 발행 버튼이 사라졌습니다. 페이지 로딩 오류 가능성.',
+                'action': '새 세션으로 재시도합니다.',
+            },
+            'MODAL_BTN_NOT_FOUND': {
+                'emoji': '⚫',
+                'cause': '모달 내 발행 버튼 없음',
+                'detail': '발행 모달은 열렸으나 내부 버튼을 찾지 못했습니다.',
+                'action': '새 세션으로 재시도합니다.',
+            },
+        }
+
+        def _parse_error_code(error: Exception) -> str:
+            """에러 메시지에서 에러 코드 추출"""
+            msg = str(error)
+            if ':' in msg:
+                code = msg.split(':')[0].strip()
+                if code in ERROR_MESSAGES:
+                    return code
+            return 'UNKNOWN'
+
+        def _build_error_slack_msg(error: Exception, error_code: str) -> str:
+            """에러 코드 기반 상세 Slack 메시지 생성"""
+            info = ERROR_MESSAGES.get(error_code)
+            if info:
+                return (
+                    f"{info['emoji']} **원인:** {info['cause']}\n"
+                    f"**상세:** {info['detail']}\n"
+                    f"**자동 조치:** {info['action']}"
                 )
-            else:
-                # Normal publish
-                progress.complete_step('publish', f'URL: {published_url}')
-                pub_logger.log_step('publish', 'success', {'url': published_url})
-                
-                # Finish logging
-                duration = time.time() - start_time
-                log_path = pub_logger.finish(True, {
-                    'url': published_url,
-                    'title': title,
-                    'image_count': len(watermarked_images)
-                })
-                
-                # Send success message with mention
-                progress.finish(published_url, duration, str(log_path))
-            
-        except Exception as pub_error:
-            logger.error(f"Publishing failed: {pub_error}", exc_info=True)
-            pub_logger.log_error('publish', pub_error)
-            log_path = pub_logger.finish(False)
-            
-            # 로그인 관련 에러 감지
-            error_str = str(pub_error).lower()
-            is_login_error = any(keyword in error_str for keyword in [
-                'login', 'nid.naver.com', 'authentication', '로그인'
-            ])
-            
-            if is_login_error:
-                # 로그인 실패 알림 (명확하게)
-                error_msg = (
-                    "🔐 **네이버 로그인이 필요합니다**\n\n"
-                    "**문제:** 자동 로그인 실패 (세션 만료)\n\n"
-                    "**조치 필요:**\n"
-                    "1. 터미널에서 다음 명령어 실행:\n"
-                    "```\n"
-                    "cd ~/agents/naverblog_automation\n"
-                    "source venv/bin/activate\n"
-                    "python naver_publisher_selenium.py login\n"
-                    "```\n"
-                    "2. 열리는 크롬 창에서 네이버 로그인\n"
-                    "3. 로그인 완료 후 다시 `/출고발행` 시도\n\n"
-                    f"**로그:** {log_path}\n\n"
-                    f"<@{user_id}> 확인 부탁드립니다."
+            return f"**원인:** 알 수 없는 오류\n**상세:** {str(error)[:200]}"
+
+        for publish_attempt in range(max_publish_retries + 1):
+            progress.update('publish',
+                f'네이버 블로그 발행 중{f" (재시도 {publish_attempt}/{max_publish_retries})" if publish_attempt > 0 else ""}')
+
+            try:
+                publisher = NaverBlogPublisher()
+                published_url = publisher.publish(
+                    title=title,
+                    html_content="",
+                    images=final_images,
+                    footer_images=footer_images,
+                    data=structured_elements,
+                    tags=seo_tags
                 )
-            else:
-                # 일반 발행 에러
-                error_msg = f"네이버 자동 발행 실패\n\n**상세:**\n{str(pub_error)}"
-            
-            progress.error(error_msg, str(log_path))
+
+                # Check if draft saved (semi-auto mode)
+                if published_url == "DRAFT_SAVED":
+                    progress.complete_step('publish', '임시저장 완료')
+                    pub_logger.log_step('publish', 'success', {'status': 'draft_saved'})
+
+                    duration = time.time() - start_time
+                    log_path = pub_logger.finish(True, {
+                        'status': 'draft_saved',
+                        'title': title,
+                        'image_count': len(watermarked_images)
+                    })
+
+                    client.chat_postMessage(
+                        channel=channel,
+                        thread_ts=thread_ts,
+                        text=f"<@{user_id}> **임시저장 완료!**\n\n"
+                             f"**제목:** {title}\n"
+                             f"**이미지:** {len(watermarked_images) + len(footer_images)}장\n\n"
+                             f"네이버 블로그에서 발행해주세요:\n"
+                             f"https://blog.naver.com/ridyservice\n\n"
+                             f"소요시간: {duration:.1f}초"
+                    )
+                else:
+                    # 발행 성공
+                    progress.complete_step('publish', f'URL: {published_url}')
+                    pub_logger.log_step('publish', 'success', {'url': published_url, 'retries': publish_attempt})
+
+                    duration = time.time() - start_time
+                    log_path = pub_logger.finish(True, {
+                        'url': published_url,
+                        'title': title,
+                        'image_count': len(watermarked_images)
+                    })
+
+                    if publish_attempt > 0:
+                        # 재시도 후 성공 알림
+                        client.chat_postMessage(
+                            channel=channel,
+                            thread_ts=thread_ts,
+                            text=f"<@{user_id}> **재시도 발행 성공!** (재시도 {publish_attempt}회 후 성공)\n\n"
+                                 f"**제목:** {title}\n"
+                                 f"**URL:** {published_url}\n"
+                                 f"소요시간: {duration:.1f}초\n\n"
+                                 f"자가 복구가 정상 작동했습니다."
+                        )
+
+                    progress.finish(published_url, duration, str(log_path))
+
+                break  # 성공 시 루프 탈출
+
+            except Exception as pub_error:
+                logger.error(f"Publishing failed (attempt {publish_attempt+1}): {pub_error}", exc_info=True)
+
+                error_code = _parse_error_code(pub_error)
+                error_detail = _build_error_slack_msg(pub_error, error_code)
+
+                # 로그인 에러는 재시도 불가
+                error_str = str(pub_error).lower()
+                is_login_error = any(keyword in error_str for keyword in [
+                    'login', 'nid.naver.com', 'authentication', '로그인'
+                ])
+
+                if is_login_error:
+                    pub_logger.log_error('publish', pub_error)
+                    log_path = pub_logger.finish(False)
+                    error_msg = (
+                        f"<@{user_id}> **네이버 로그인 필요**\n\n"
+                        f"**문제:** 자동 로그인 실패 (세션 만료)\n"
+                        f"**에러 코드:** LOGIN_EXPIRED\n\n"
+                        f"**수동 조치 필요:**\n"
+                        f"1. 터미널에서 실행:\n"
+                        f"```\n"
+                        f"cd ~/Ridy/naver_blog_automation\n"
+                        f"source venv/bin/activate\n"
+                        f"python manual_login.py\n"
+                        f"```\n"
+                        f"2. 크롬 창에서 네이버 로그인\n"
+                        f"3. 완료 후 다시 `/출고발행` 시도\n\n"
+                        f"이 오류는 자동 재시도가 불가합니다."
+                    )
+                    progress.error(error_msg, str(log_path))
+                    break
+
+                # 재시도 가능한 에러 (파일 전송, 타임아웃 등)
+                if publish_attempt < max_publish_retries:
+                    retry_min = retry_delay_seconds // 60
+                    remaining = max_publish_retries - publish_attempt
+
+                    # 상세 Slack 경고 알림
+                    client.chat_postMessage(
+                        channel=channel,
+                        thread_ts=thread_ts,
+                        text=(
+                            f"<@{user_id}> **발행 실패 - 자동 재시도 예정**\n\n"
+                            f"**에러 코드:** `{error_code}`\n"
+                            f"{error_detail}\n\n"
+                            f"**현재 상태:**\n"
+                            f"- 시도: {publish_attempt + 1}회 / 최대 {max_publish_retries + 1}회\n"
+                            f"- 남은 재시도: {remaining}회\n"
+                            f"- 대기 시간: {retry_min}분\n\n"
+                            f"**{retry_min}분 후 새 세션으로 자동 재시도합니다.**\n"
+                            f"글 작성은 완료된 상태이며, 발행 단계만 다시 시도합니다."
+                        )
+                    )
+                    logger.info(f"Waiting {retry_delay_seconds}s before retry {publish_attempt+1}...")
+                    time.sleep(retry_delay_seconds)
+                else:
+                    # 모든 재시도 실패
+                    pub_logger.log_error('publish', pub_error)
+                    log_path = pub_logger.finish(False)
+                    error_msg = (
+                        f"<@{user_id}> **발행 최종 실패**\n\n"
+                        f"**에러 코드:** `{error_code}`\n"
+                        f"{error_detail}\n\n"
+                        f"**시도 내역:**\n"
+                        f"- 발행 단계 내부 자동 복구: 2회 시도\n"
+                        f"- 새 세션 재시도: {max_publish_retries}회 시도 (각 {retry_delay_seconds // 60}분 간격)\n"
+                        f"- 결과: 모두 실패\n\n"
+                        f"**수동 조치 필요:**\n"
+                        f"1. 네이버 블로그 에디터에서 임시저장 글 확인\n"
+                        f"2. 수동으로 발행하거나 `/출고발행`으로 재시도\n\n"
+                        f"네이버 서버 장애가 지속되고 있을 수 있습니다."
+                    )
+                    progress.error(error_msg, str(log_path))
         
     except Exception as e:
         logger.error(f"Processing failed: {e}", exc_info=True)

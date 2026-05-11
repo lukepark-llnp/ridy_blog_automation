@@ -2,40 +2,42 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pathlib import Path
 
+# 프로젝트 루트 자동 계산 — 어디로 옮기든 동작
+BASE_DIR = Path(__file__).resolve().parent
+
 
 class Settings(BaseSettings):
     """Application settings"""
-    
+
     # Slack
     slack_bot_token: str
     slack_app_token: str
     slack_channel_id: str
-    
+
     # Naver
     naver_id: str = "ridyservice"
     naver_pw: str
     naver_blog_url: str = "https://blog.naver.com/ridyservice"
     naver_blog_category: str = "출고 현황"  # Blog category for auto-posts
-    
+
     # Anthropic
     anthropic_api_key: str
-    anthropic_model: str = "claude-3-haiku-20240307"
-    
+    anthropic_model: str = "claude-haiku-4-5-20251001"
+
     # Ollama (Backup)
     ollama_host: str = "http://192.168.75.44:11434"
     ollama_model: str = "llama3.2:latest"
-    
+
     # Paths
-    chrome_profile_path: str = str(Path.home() / ".naver-chrome-profile")
+    chrome_profile_path: str = str(BASE_DIR / "chrome_data")
+    cookie_json_path: str = str(BASE_DIR / "naver_cookies.json")
     output_dir: str = "./output"
     
-    # Footer URLs (from reference blog)
-    kakao_link_1: str = "https://pf.kakao.com/_xlxdClG/chat"
-    kakao_link_2: str = "https://open.kakao.com/o/sFLWe6Ug"
-    kakao_link_3: str = "https://open.kakao.com/o/sLLWhAPg"
+    # Footer URLs
+    kakao_link_1: str = "https://pf.kakao.com/_xgxoxexen/chat"
     
     # Contact
-    phone: str = "010-6575-2119"
+    phone: str = "1555-6595"
     
     # Tags (from reference)
     default_tags: list[str] = [

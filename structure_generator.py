@@ -201,8 +201,8 @@ class StructureGenerator:
         links = [
             ("카카오톡 채널", settings.kakao_link_1),
             ("RIDY 바로 가기", "https://www.ridy.co.kr/"),
-            ("PAY OUT 바로 가기", "https://www.ridy.co.kr/payout"),
-            ("지사 도입 문의하기", "https://www.ridy.co.kr/inquiry#%EC%A7%80%EC%82%AC%EB%8F%84%EC%9E%85%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0")
+            ("PAYOUT 바로 가기", "https://www.ridy.co.kr/service/payout"),
+            ("서비스센터 가입 문의", "https://tally.so/r/mYLXOd")
         ]
         
         for text, url in links:
