@@ -12,15 +12,20 @@ class ContentGenerator:
     """Generate varied blog content using Anthropic Claude 3 Haiku"""
     
     # Title patterns (8 variations - 영문/한글 혼용, 심플한 형식)
+    # 룰: 모든 제목은 반드시 "출고"로 끝나야 한다.
+    # 라이디 홈페이지(www.ridy.co.kr/story) 네이버 블로그 수집 로직이
+    # `제목 마지막 == "출고"` 기준으로 출고 게시물을 인식하고, KST 09:00 윈도당 1건만 노출함.
+    # 변형 추가 시에도 이 룰(끝이 "출고")을 반드시 지킬 것 — 어기면 도배 사고 재발.
+    # 상세: ~/Ridy/www.ridy.co.kr/server.js의 isDeliveryPost() 정규식 /출고\s*$/
     TITLE_PATTERNS = [
-        "{region} {district} 배달 오토바이 {model_eng}출고",
-        "{region} {district} {model_kor} {color} 출고완료",
-        "{model_eng} {color} 출고 | {region} {district}",
-        "{region} {model_kor} {color} 배달 완료",
-        "{district} {model_eng} 출고 - {color} 바이크 리스",
-        "{region} {model_kor} {color} 출고 {district}",
+        "{region} {district} 배달 오토바이 {model_eng} 출고",
+        "{region} {district} {model_kor} {color} 출고",
+        "{region} {district} | {model_eng} {color} 출고",
+        "{region} {model_kor} {color} 신차 출고",
+        "{district} {model_eng} {color} 바이크 리스 출고",
+        "{region} {district} {color} {model_kor} 출고",
         "{region} {model_eng} {color} 출고",
-        "{model_eng} 출고 완료 | {region} {district} {color}"
+        "{region} {district} {model_eng} {color} 신규 출고",
     ]
     
     # Greeting patterns (8 variations)
